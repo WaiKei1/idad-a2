@@ -13,12 +13,38 @@ h1 {
   text-align: center;
 }
 
-p {
-  font-family: ;
+.kitchen {
+  width: 100%;
+  height: 100vh;
+  background-image: url("img/kitchenBG.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin: auto;
+  position: relative;
 }
 
-img {
-  display: block;
-  margin: auto;
-  justify-content: center;
+.utensil {
+  position: absolute;
+  width: 80px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.utensil:hover {
+  transform: scale(1.1);
+}
+
+.spoon {
+  top: 200px;
+  left: 150px;
+}
+
+.fork {
+  top: 220px;
+  left: 300px;
+}
+
+.knife {
+  top: 250px;
+  left: 450px;
 }
