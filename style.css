@@ -15,7 +15,7 @@ h1 {
 
 .kitchen {
   width: 100%;
-  height: 90vh;
+  height: 100vh;
   background-image: url("img/kitchenBG.png");
   background-repeat: no-repeat;
   background-size: contain;
