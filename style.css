@@ -41,12 +41,14 @@ h1 {
   width: 70%;
 }
 
-.fork {
-  top: 220px;
-  left: 300px;
+.bowl {
+  top: 9%;
+  left: 3%;
+  width: 75%;
 }
 
-.knife {
-  top: 250px;
-  left: 450px;
+.glass {
+  top: 9%;
+  left: 3%;
+  width: 75%;
 }
