@@ -31,10 +31,6 @@ h1 {
   transition: transform 0.2s;
 }
 
-.utensil:hover {
-  transform: scale(1);
-}
-
 .pan {
   top: 10%;
   left: 5%;
@@ -48,6 +44,30 @@ h1 {
 }
 
 .glass {
+  top: 9%;
+  left: 3%;
+  width: 75%;
+}
+
+.spoon {
+  top: 9%;
+  left: 3%;
+  width: 75%;
+}
+
+.chopsticks {
+  top: 9%;
+  left: 3%;
+  width: 75%;
+}
+
+.glass {
+  top: 9%;
+  left: 3%;
+  width: 75%;
+}
+
+.panLid {
   top: 9%;
   left: 3%;
   width: 75%;
