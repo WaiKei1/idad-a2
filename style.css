@@ -32,43 +32,60 @@ h1 {
 }
 
 .pan {
-  top: 10%;
-  left: 5%;
-  width: 70%;
-}
-
-.bowl {
-  top: 9%;
-  left: 3%;
+  top: 12%;
+  left: o.5%;
   width: 75%;
 }
 
-.glass {
-  top: 9%;
-  left: 3%;
-  width: 75%;
-}
-
-.spoon {
-  top: 9%;
-  left: 3%;
-  width: 75%;
-}
-
+.panLid,
+.bowl,
+.glass,
+.spoon,
 .chopsticks {
-  top: 9%;
-  left: 3%;
+  top: 7%;
+  left: 8%;
+  width: 80%;
+}
+
+.knife,
+.cuttingBoard {
+  top: 12%;
+  left: 10%;
   width: 75%;
 }
 
-.glass {
-  top: 9%;
-  left: 3%;
+.teapot,
+.teaCup {
+  top: 4.3%;
+  left: 7%;
   width: 75%;
 }
 
-.panLid {
-  top: 9%;
-  left: 3%;
+.salt,
+.pepper,
+.vinegar {
+  top: 5.5%;
+  left: 18%;
   width: 75%;
+}
+
+dialog[open] {
+  margin: auto;
+  padding: 1rem;
+  background-color: beige;
+  color: rgb(72, 45, 8);
+  border: rgb(72, 45, 8);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+dialog::backdrop {
+  background-color: rgba(65, 45, 17, 0.5);
+}
+#dialogCloseButton {
+  background-color: rgb(230, 217, 198);
+  color: rgb(65, 45, 17);
+  padding: 0 1rem;
 }
