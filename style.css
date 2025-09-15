@@ -17,7 +17,7 @@ h1 {
 }
 
 .kitchen {
-  width: 100%;
+  width: 90%;
   height: 100vh;
   background-image: url("img/kitchenBG.png");
   background-repeat: no-repeat;
@@ -56,7 +56,7 @@ h1 {
 
 .teapot,
 .teaCup {
-  top: 6%;
+  top: 6.2%;
   left: 7%;
   width: 75%;
 }
@@ -64,7 +64,7 @@ h1 {
 .salt,
 .pepper,
 .vinegar {
-  top: 6%;
+  top: 6.8%;
   left: 18%;
   width: 75%;
 }
