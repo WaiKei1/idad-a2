@@ -32,7 +32,7 @@ h1 {
 }
 
 .pan {
-  top: 12%;
+  top: 8%;
   left: 0.5%;
   width: 85%;
 }
@@ -42,14 +42,14 @@ h1 {
 .glass,
 .spoon,
 .chopsticks {
-  top: 10%;
+  top: 4%;
   left: 8%;
   width: 85%;
 }
 
 .knife,
 .cuttingBoard {
-  top: 12%;
+  top: 7%;
   left: 10%;
   width: 85%;
 }
@@ -64,7 +64,7 @@ h1 {
 .salt,
 .pepper,
 .vinegar {
-  top: 6.8%;
+  top: 7%;
   left: 18%;
   width: 75%;
 }
