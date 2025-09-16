@@ -42,47 +42,66 @@ p {
 }
 
 .utensil {
-  position: absolute;
-  cursor: pointer;
   transition: transform 0.2s;
 }
 
+.utensil:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.utensil-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 30px;
+  position: absolute;
+}
+
+.utensil-row img {
+  position: relative;
+}
+
 .pan {
-  top: 8%;
-  left: 0.5%;
-  width: 85%;
-}
-
-.panLid,
-.bowl,
-.glass,
-.spoon,
-.chopsticks {
-  top: 4%;
-  left: 8%;
-  width: 85%;
-}
-
-.knife,
-.cuttingBoard {
-  top: 7%;
-  left: 10%;
-  width: 85%;
-}
-
-.teapot,
-.teaCup {
-  top: 6.2%;
+  position: absolute;
+  top: 35%;
   left: 7%;
-  width: 75%;
+  width: 30%;
 }
 
-.salt,
-.pepper,
-.vinegar {
-  top: 7%;
-  left: 18%;
-  width: 75%;
+.spoon {
+  position: absolute;
+  top: 23.5%;
+  left: 82.5%;
+  width: 7%;
+}
+
+.chopsticks {
+  position: absolute;
+  top: 24%;
+  left: 86%;
+  width: 5.6%;
+}
+
+.glass2 {
+  position: absolute;
+  top: 28.5%;
+  left: 82%;
+  width: 100px;
+}
+
+.cuttingBoard {
+  position: absolute;
+  top: 43%;
+  left: 40%;
+  width: 40%;
+}
+
+.knife {
+  position: absolute;
+  top: 40.5%;
+  left: 65%;
+  width: 9%;
 }
 
 dialog[open] {
