@@ -34,7 +34,8 @@ p {
 
 .kitchen {
   width: 100%;
-  background-image: url("img/kitchenBG.png");
+  height: 660px;
+  background-image: url("img/kitchenBg.png");
   background-repeat: no-repeat;
   background-size: contain;
   position: relative;
@@ -43,7 +44,7 @@ p {
   overflow: hidden;
 }
 
-.utensil {
+.kitchen .utensil {
   transition: transform 0.2s;
 }
 
