@@ -1,12 +1,13 @@
-document.addEventListener(
-  "click",
-  async () => {
-    await Tone.start();
-    console.log("Tone.js is ready");
-  },
-  { once: true }
-);
+// toneSetup.js
 
+// Called when the modal closes
+function toneInit() {
+  Tone.start().then(() => {
+    console.log("Tone.js started");
+  });
+}
+
+// Create a Tone.Players instance
 const utensilPlayers = new Tone.Players(
   {
     teapot: "sounds/teapot.wav",
@@ -21,6 +22,7 @@ const utensilPlayers = new Tone.Players(
     chopsticks: "sounds/chopsticks.wav",
     cuttingBoard: "sounds/cuttingBoard.wav",
     knife: "sounds/knife.wav",
+    pan: "sounds/pan.wav",
   },
   {
     volume: -6,

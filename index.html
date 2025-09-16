@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kitchen Symphony</title>
 
-    <script src="http://unpkg.com/tone"></script>
+    <script src="https://unpkg.com/tone"></script>
 
     <link rel="stylesheet" href="style.css" />
     <script src="toneSetup.js" defer></script>
     <script src="UIControls.js" defer></script>
     <script src="main.js" defer></script>
+    <script src="effect.js" defer></script>
   </head>
 
   <body>
@@ -19,6 +20,7 @@
       Click a utensil to start its loop (with random pitch). Click again to
       stop.
     </h3>
+    <button id="resetBtn">RESET</button>
 
     <dialog id="introDialog">
       <p>Welcome to Kitchen Symphony!</p>
@@ -28,6 +30,7 @@
 
     <div class="kitchen">
       <div class="utensils">
+        <canvas id="effectCanvas"></canvas>
         <div class="utensil-row" style="top: 6%; left: 10%">
           <img
             src="img/teapot.png"
@@ -64,7 +67,12 @@
           />
         </div>
 
-        <img src="img/pan.png" class="utensil pan" alt="frying pan" />
+        <img
+          src="img/pan.png"
+          class="utensil pan"
+          data-id="pan"
+          alt="frying pan"
+        />
 
         <div class="utensil-row" style="top: 40%; left: 39%">
           <img

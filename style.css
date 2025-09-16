@@ -42,10 +42,12 @@ p {
   aspect-ratio: 16/9;
   margin: 0 auto;
   overflow: hidden;
+  z-index: 1;
 }
 
 .kitchen.utensil {
   transition: transform 0.2s;
+  z-index: 2;
 }
 
 .utensil:hover {
@@ -126,4 +128,31 @@ dialog::backdrop {
   background-color: rgb(230, 217, 198);
   color: rgb(65, 45, 17);
   padding: 0 1rem;
+}
+
+#effectCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* lets clicks go through */
+  z-index: 1; /* behind everything */
+}
+
+#resetBtn {
+  display: block;
+  margin: 1rem auto;
+  padding: 0.5rem 1rem;
+  background-color: rgb(172, 81, 32);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: "Handlee", cursive;
+  font-size: 1rem;
+}
+
+#resetBtn:hover {
+  background-color: rgb(140, 65, 25);
 }
