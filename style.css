@@ -71,35 +71,35 @@ p {
 
 .spoon {
   position: absolute;
-  top: 23.5%;
-  left: 82.5%;
+  top: 42.5%;
+  left: 83%;
   width: 7%;
 }
 
 .chopsticks {
   position: absolute;
-  top: 24%;
+  top: 42.5%;
   left: 86%;
   width: 5.6%;
 }
 
 .glass2 {
   position: absolute;
-  top: 28.5%;
+  top: 47.4%;
   left: 82%;
   width: 100px;
 }
 
 .cuttingBoard {
   position: absolute;
-  top: 55%;
+  top: 63%;
   left: 40%;
   width: 35%;
 }
 
 .knife {
   position: absolute;
-  top: 40.5%;
+  top: 59.5%;
   left: 65%;
   width: 9%;
 }
