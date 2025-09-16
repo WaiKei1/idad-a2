@@ -13,6 +13,15 @@ h1 {
   color: rgb(172, 81, 32);
   text-align: center;
   margin-top: 10px;
+  margin-bottom: 8px;
+}
+
+h3 {
+  font-family: "Handlee", cursive;
+  font-size: 1.3rem;
+  color: rgb(93, 45, 19);
+  text-align: center;
+  margin: 0px;
 }
 
 p {
