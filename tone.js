@@ -1,4 +1,4 @@
 function toneInit() {
-  Tone.start(); // initialize audio context
+  Tone.start();
   console.log("Tone.js ready!");
 }
