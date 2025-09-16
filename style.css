@@ -86,7 +86,7 @@ dialog[open] {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: 0.5rem;
 }
 dialog::backdrop {
   background-color: rgba(65, 45, 17, 0.5);
