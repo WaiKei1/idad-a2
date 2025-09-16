@@ -1,47 +1,33 @@
-const utensils = document.querySelectorAll(".utensil");
-const composition = document.getElementById("composition");
+const activeLoops = {}; // track active loops
 
-const loops = {}; // store Tone.Players per utensil
+function playUtensil(id) {
+  if (activeLoops[id]) {
+    // If already playing → stop it
+    activeLoops[id].stop();
+    delete activeLoops[id];
+    console.log(`${id} stopped`);
+  } else {
+    // Random pitch between -12 and +12 semitones
+    const randomPitch = Math.floor(Math.random() * 25) - 12;
 
-// helper to get random pitch factor
-function getRandomPitch() {
-  const pitches = [0.75, 1, 1.25, 1.5]; // low, medium, high, extra-high
-  return pitches[Math.floor(Math.random() * pitches.length)];
+    // Create a loop that plays every measure
+    const loop = new Tone.Loop((time) => {
+      utensilPlayers.player(id).playbackRate = Tone.IntervalToFrequencyRatio(
+        randomPitch / 12
+      );
+      utensilPlayers.player(id).start(time);
+    }, "1m").start(0);
+
+    activeLoops[id] = loop;
+    Tone.Transport.start();
+    console.log(`${id} started with pitch ${randomPitch}`);
+  }
 }
 
-utensils.forEach((utensil) => {
-  utensil.addEventListener("click", () => {
-    const id = utensil.dataset.id;
-
-    if (loops[id]?.state === "started") {
-      // stop current loop
-      loops[id].stop();
-      loops[id].state = "stopped";
-    } else {
-      // create new loop with random pitch
-      const player = new Tone.Player(`sounds/${id}.mp3`).toDestination();
-      player.playbackRate = getRandomPitch();
-      player.loop = true;
-      player.start();
-      player.state = "started";
-      loops[id] = player;
-    }
+// Attach event listeners to all utensils
+document.querySelectorAll(".utensil").forEach((el) => {
+  el.addEventListener("click", () => {
+    const id = el.dataset.id;
+    playUtensil(id);
   });
-
-  // Make utensils draggable
-  utensil.setAttribute("draggable", true);
-  utensil.addEventListener("dragstart", (e) => {
-    e.dataTransfer.setData("text/plain", utensil.dataset.id);
-  });
-});
-
-// Allow dragging into composition
-composition.addEventListener("dragover", (e) => e.preventDefault());
-composition.addEventListener("drop", (e) => {
-  e.preventDefault();
-  const id = e.dataTransfer.getData("text/plain");
-  const clone = document
-    .querySelector(`.utensil[data-id="${id}"]`)
-    .cloneNode(true);
-  composition.appendChild(clone);
 });

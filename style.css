@@ -44,7 +44,7 @@ p {
   overflow: hidden;
 }
 
-.kitchen .utensil {
+.kitchen.utensil {
   transition: transform 0.2s;
 }
 
@@ -57,7 +57,7 @@ p {
   display: flex;
   flex-direction: row;
   align-items: flex-end;
-  gap: 30px;
+  gap: 5%;
   position: absolute;
 }
 
@@ -74,35 +74,35 @@ p {
 
 .spoon {
   position: absolute;
-  top: 42.5%;
+  top: 33%;
   left: 83%;
   width: 7%;
 }
 
 .chopsticks {
   position: absolute;
-  top: 42.5%;
+  top: 33%;
   left: 86%;
   width: 5.6%;
 }
 
 .glass2 {
   position: absolute;
-  top: 47.4%;
-  left: 82%;
-  width: 100px;
+  top: 41%;
+  left: 83%;
+  width: 10%;
 }
 
 .cuttingBoard {
   position: absolute;
-  top: 63%;
+  top: 68%;
   left: 40%;
   width: 35%;
 }
 
 .knife {
   position: absolute;
-  top: 59.5%;
+  top: 62%;
   left: 65%;
   width: 9%;
 }
