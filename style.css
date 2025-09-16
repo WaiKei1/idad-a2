@@ -140,9 +140,23 @@ dialog::backdrop {
   z-index: 1; /* behind everything */
 }
 
+.instruction-row {
+  display: flex;
+  justify-content: space-between; /* text left, button right */
+  align-items: center; /* vertically center */
+  margin: 0 1rem 1rem 1rem; /* spacing around row */
+}
+
+.instruction-row h3 {
+  margin: 0;
+  font-family: "Handlee", cursive;
+  font-size: 1.3rem;
+  color: rgb(93, 45, 19);
+  flex: 1; /* allow h3 to take available space */
+}
+
 #resetBtn {
-  display: block;
-  margin: 1rem auto;
+  margin: 0; /* remove previous auto margins */
   padding: 0.5rem 1rem;
   background-color: rgb(172, 81, 32);
   color: white;
