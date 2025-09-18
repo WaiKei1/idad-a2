@@ -8,6 +8,7 @@
     <script src="https://unpkg.com/tone"></script>
 
     <link rel="stylesheet" href="style.css" />
+    <script src="popup.js" defer></script>
     <script src="toneSetup.js" defer></script>
     <script src="UIControls.js" defer></script>
     <script src="main.js" defer></script>
@@ -15,117 +16,126 @@
   </head>
 
   <body>
-    <h1>Kitchen Symphony</h1>
-    <div class="instruction-row">
-      <h3>
-        Click a utensil to start its loop (with random pitch). Click again to
-        stop.
-      </h3>
-      <button id="resetBtn">RESET</button>
+    <div id="popup" class="popup" style="display: none">
+      <div class="popup-content">
+        <p id="popupMessage"></p>
+        <button id="closePopup">OK</button>
+      </div>
     </div>
 
-    <dialog id="introDialog">
-      <p>Welcome to Kitchen Symphony!</p>
-      <p>Please set your volume to a comfortable level before playing</p>
-      <button id="dialogCloseButton" autofocus>OK</button>
-    </dialog>
+    <div class="main-content" style="display: none" ;>
+      <h1>Kitchen Symphony</h1>
+      <div class="instruction-row">
+        <h3>
+          Click a utensil to start its loop (with random pitch). Click again to
+          stop.
+        </h3>
+        <button id="resetBtn">RESET</button>
+      </div>
 
-    <div class="kitchen">
-      <div class="utensils">
-        <canvas id="effectCanvas"></canvas>
-        <div class="utensil-row" style="top: 6%; left: 10%">
+      <dialog id="introDialog">
+        <p>Welcome to Kitchen Symphony!</p>
+        <p>Please set your volume to a comfortable level before playing</p>
+        <button id="dialogCloseButton" autofocus>OK</button>
+      </dialog>
+
+      <div class="kitchen">
+        <div class="utensils">
+          <canvas id="effectCanvas"></canvas>
+          <div class="utensil-row" style="top: 6%; left: 10%">
+            <img
+              src="img/teapot.png"
+              class="utensil"
+              data-id="teapot"
+              style="width: 40%"
+            />
+            <img
+              src="img/teaCup.png"
+              class="utensil"
+              data-id="teaCup"
+              style="width: 23%"
+            />
+          </div>
+
+          <div class="utensil-row" style="top: 10.2%; left: 65%">
+            <img
+              src="img/salt.png"
+              class="utensil"
+              data-id="salt"
+              style="width: 15%"
+            />
+            <img
+              src="img/pepper.png"
+              class="utensil"
+              data-id="pepper"
+              style="width: 15%"
+            />
+            <img
+              src="img/vinegar.png"
+              class="utensil"
+              data-id="vinegar"
+              style="width: 20%"
+            />
+          </div>
+
           <img
-            src="img/teapot.png"
-            class="utensil"
-            data-id="teapot"
-            style="width: 40%"
+            src="img/pan.png"
+            class="utensil pan"
+            data-id="pan"
+            alt="frying pan"
           />
+
+          <div class="utensil-row" style="top: 40%; left: 39%">
+            <img
+              src="img/panLid.png"
+              class="utensil"
+              data-id="panLid"
+              style="width: 40%"
+            />
+            <img
+              src="img/bowl.png"
+              class="utensil"
+              data-id="bowl"
+              style="width: 22%"
+            />
+            <img
+              src="img/glass.png"
+              class="utensil"
+              data-id="glass"
+              style="width: 18%"
+            />
+          </div>
+
           <img
-            src="img/teaCup.png"
-            class="utensil"
-            data-id="teaCup"
-            style="width: 23%"
+            src="img/spoon.png"
+            class="utensil spoon"
+            data-id="spoon"
+            alt="spoon"
+          />
+
+          <img
+            src="img/chopsticks.png"
+            class="utensil chopsticks"
+            data-id="chopsticks"
+            alt="chopsticks"
+          />
+
+          <img src="img/glass2.png" class="glass2" alt="glass" />
+
+          <img
+            src="img/cuttingBoard.png"
+            class="utensil cuttingBoard"
+            data-id="cuttingBoard"
+            alt="cuttingBoard"
+          />
+
+          <img
+            src="img/knife.png"
+            class="utensil knife"
+            data-id="knife"
+            alt="knife"
           />
         </div>
-
-        <div class="utensil-row" style="top: 10.2%; left: 65%">
-          <img
-            src="img/salt.png"
-            class="utensil"
-            data-id="salt"
-            style="width: 15%"
-          />
-          <img
-            src="img/pepper.png"
-            class="utensil"
-            data-id="pepper"
-            style="width: 15%"
-          />
-          <img
-            src="img/vinegar.png"
-            class="utensil"
-            data-id="vinegar"
-            style="width: 20%"
-          />
-        </div>
-
-        <img
-          src="img/pan.png"
-          class="utensil pan"
-          data-id="pan"
-          alt="frying pan"
-        />
-
-        <div class="utensil-row" style="top: 40%; left: 39%">
-          <img
-            src="img/panLid.png"
-            class="utensil"
-            data-id="panLid"
-            style="width: 40%"
-          />
-          <img
-            src="img/bowl.png"
-            class="utensil"
-            data-id="bowl"
-            style="width: 22%"
-          />
-          <img
-            src="img/glass.png"
-            class="utensil"
-            data-id="glass"
-            style="width: 18%"
-          />
-        </div>
-
-        <img
-          src="img/spoon.png"
-          class="utensil spoon"
-          data-id="spoon"
-          alt="spoon"
-        />
-
-        <img
-          src="img/chopsticks.png"
-          class="utensil chopsticks"
-          data-id="chopsticks"
-          alt="chopsticks"
-        />
-
-        <img src="img/glass2.png" class="glass2" alt="glass" />
-
-        <img
-          src="img/cuttingBoard.png"
-          class="utensil cuttingBoard"
-          data-id="cuttingBoard"
-          alt="cuttingBoard"
-        />
-
-        <img
-          src="img/knife.png"
-          class="utensil knife"
-          data-id="knife"
-          alt="knife"
-        />
       </div>
     </div>
   </body>
