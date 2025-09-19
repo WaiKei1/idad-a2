@@ -1,10 +1,11 @@
-const activeLoops = {}; // store Tone.Loop objects per utensil
+const activeLoops = {};
 
-function playUtensil(id) {
+function playUtensil(id, el) {
   if (activeLoops[id]) {
     // Stop existing loop
     activeLoops[id].stop();
     delete activeLoops[id];
+    el.classList.remove("shaking"); // stop shaking animation
     console.log(`${id} stopped`);
   } else {
     // Random pitch between -12 and +12 semitones
@@ -19,6 +20,8 @@ function playUtensil(id) {
 
     activeLoops[id] = loop;
     Tone.Transport.start();
+
+    el.classList.add("shaking"); // start shaking animation
     console.log(`${id} started with pitch ${randomPitch}`);
   }
 }
@@ -28,7 +31,7 @@ document.querySelectorAll(".utensil").forEach((el) => {
   el.addEventListener("click", async () => {
     await Tone.start(); // ensure audio context is ready
     const id = el.dataset.id;
-    playUtensil(id);
+    playUtensil(id, el);
   });
 });
 
@@ -39,6 +42,11 @@ resetBtn.addEventListener("click", () => {
     activeLoops[id].stop();
     delete activeLoops[id];
   }
-  clearEffects(); // optional: clears firework emojis
+
+  document.querySelectorAll(".utensil").forEach((u) => {
+    u.classList.remove("shaking");
+  });
+
+  clearEffects();
   console.log("All sounds stopped");
 });

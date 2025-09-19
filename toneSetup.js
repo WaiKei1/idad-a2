@@ -1,13 +1,9 @@
-// toneSetup.js
-
-// Called when the modal closes
 function toneInit() {
   Tone.start().then(() => {
     console.log("Tone.js started");
   });
 }
 
-// Create a Tone.Players instance
 const utensilPlayers = new Tone.Players(
   {
     teapot: "sounds/teapot.wav",
