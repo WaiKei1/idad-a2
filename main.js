@@ -67,11 +67,15 @@ resetBtn.addEventListener("click", () => {
 
   document.querySelectorAll(".utensil").forEach((u) => {
     u.classList.remove("shaking");
-    u.style.width = originalSizes[u.dataset.id] + "px"; // reset size
+    u.style.removeProperty("--scale");
+    u.style.transform = ""; // reset transform to default
   });
 
-  document.getElementById("pitchDisplay").textContent = "";
-
   clearEffects();
-  console.log("All sounds stopped");
+
+  // Clear pitch display
+  const pitchDisplay = document.getElementById("pitchDisplay");
+  pitchDisplay.textContent = "";
+
+  console.log("All sounds stopped and utensils reset.");
 });
