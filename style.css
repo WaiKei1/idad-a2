@@ -242,7 +242,7 @@ dialog::backdrop {
 /* Pitch display box */
 #pitchDisplay {
   position: absolute;
-  bottom: 10px;
+  bottom: -48px;
   left: 50%;
   transform: translateX(-50%);
   font-family: "Handlee", cursive;
