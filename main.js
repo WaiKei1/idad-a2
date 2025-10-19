@@ -39,6 +39,9 @@ function playUtensil(id, el) {
     el.style.setProperty("--scale", scaleFactor);
     el.classList.add("shaking");
 
+    // Trigger sparkle effect based on pitch
+    sparkleAtUtensil(el, utensilEmojis[id] || "✨", randomPitch);
+
     // Show pitch info
     pitchDisplay.textContent = `🎵 ${id} pitch: ${
       randomPitch >= 0 ? "+" : ""
