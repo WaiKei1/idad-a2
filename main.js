@@ -1,17 +1,30 @@
 const activeLoops = {};
+const originalSizes = {}; // store original width of each utensil
+
+// Save original sizes
+document.querySelectorAll(".utensil").forEach((el) => {
+  originalSizes[el.dataset.id] = el.offsetWidth; // store width in pixels
+});
 
 function playUtensil(id, el) {
+  const pitchDisplay = document.getElementById("pitchDisplay");
+
   if (activeLoops[id]) {
-    // Stop existing loop
+    // Stop loop
     activeLoops[id].stop();
     delete activeLoops[id];
-    el.classList.remove("shaking"); // stop shaking animation
+    el.classList.remove("shaking");
+    el.style.transform = ""; // reset scale and shake
     console.log(`${id} stopped`);
+
+    // Clear pitch text if no more active loops
+    if (Object.keys(activeLoops).length === 0) {
+      pitchDisplay.textContent = "";
+    }
   } else {
-    // Random pitch between -12 and +12 semitones
+    // Generate random pitch between -12 and +12 semitones
     const randomPitch = Math.floor(Math.random() * 25) - 12;
 
-    // Create a loop to play the utensil sound repeatedly
     const loop = new Tone.Loop((time) => {
       const player = utensilPlayers.player(id);
       player.playbackRate = Math.pow(2, randomPitch / 12);
@@ -21,7 +34,19 @@ function playUtensil(id, el) {
     activeLoops[id] = loop;
     Tone.Transport.start();
 
-    el.classList.add("shaking"); // start shaking animation
+    // Map pitch to scale (smaller for higher pitch, bigger for lower)
+    const scaleFactor = 1 + randomPitch / 60; // around 0.8–1.2 range
+    el.style.setProperty("--scale", scaleFactor);
+    el.classList.add("shaking");
+
+    // Trigger sparkle effect based on pitch
+    sparkleAtUtensil(el, utensilEmojis[id] || "✨", randomPitch);
+
+    // Show pitch info
+    pitchDisplay.textContent = `🎵 ${id} pitch: ${
+      randomPitch >= 0 ? "+" : ""
+    }${randomPitch} semitones`;
+
     console.log(`${id} started with pitch ${randomPitch}`);
   }
 }
@@ -45,8 +70,15 @@ resetBtn.addEventListener("click", () => {
 
   document.querySelectorAll(".utensil").forEach((u) => {
     u.classList.remove("shaking");
+    u.style.removeProperty("--scale");
+    u.style.transform = ""; // reset transform to default
   });
 
   clearEffects();
-  console.log("All sounds stopped");
+
+  // Clear pitch display
+  const pitchDisplay = document.getElementById("pitchDisplay");
+  pitchDisplay.textContent = "";
+
+  console.log("All sounds stopped and utensils reset.");
 });

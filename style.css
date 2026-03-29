@@ -207,24 +207,51 @@ dialog::backdrop {
 }
 
 /* shaking effect */
+/* Smooth shaking effect (includes scaling) */
 @keyframes shake {
   0% {
-    transform: translate(0px, 0px) rotate(0deg);
+    transform: scale(var(--scale)) translate(0, 0) rotate(0deg);
   }
   25% {
-    transform: translate(2px, -2px) rotate(-2deg);
+    transform: scale(var(--scale)) translate(2px, -2px) rotate(-2deg);
   }
   50% {
-    transform: translate(-2px, 2px) rotate(2deg);
+    transform: scale(var(--scale)) translate(-2px, 2px) rotate(2deg);
   }
   75% {
-    transform: translate(2px, 2px) rotate(-1deg);
+    transform: scale(var(--scale)) translate(2px, 2px) rotate(-1deg);
   }
   100% {
-    transform: translate(0px, 0px) rotate(0deg);
+    transform: scale(var(--scale)) translate(0, 0) rotate(0deg);
   }
 }
 
+/* Utensil default state */
+.utensil {
+  --scale: 1;
+  transform: scale(var(--scale));
+  transform-origin: center center;
+  transition: transform 0.2s ease; /* smooth scaling when clicked */
+}
+
+/* Active shaking state */
 .utensil.shaking {
   animation: shake 0.3s infinite;
+}
+
+/* Pitch display box */
+#pitchDisplay {
+  position: absolute;
+  bottom: -48px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "Handlee", cursive;
+  font-size: 1.2rem;
+  color: rgb(93, 45, 19);
+  background: rgba(255, 255, 255, 0.6);
+  padding: 0.4rem 1rem;
+  border-radius: 8px;
+  backdrop-filter: blur(2px);
+  text-align: center;
+  z-index: 10;
 }
